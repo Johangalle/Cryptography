@@ -1,5 +1,5 @@
 # Cryptography
-Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
+Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION
 
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
