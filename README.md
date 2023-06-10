@@ -1,22 +1,28 @@
 # Cryptography
 Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
 
-# The easiest (symmetric_xor) symmetric encryption algorithm
+## The easiest (symmetric_xor) symmetric encryption algorithm
+```
 >>> import basic_crypto
 >>> import secrets
 >>> masterkey = secrets.token_bytes(16) # if you want to generate a random 16 bytes sequence
 >>> masterkey = b"mfhskrncdsognwz".     # if you want to specify the key yourself
 >>> cipher = basic_crypto.symmetric_encrypt_xor(plaintext,masterkey)
 >>> decrypted = basic_crypto.symmetric_decrypt_xor(cipher, masterkey)
+```
 
-# We continue with asymmetric encryption algorithm
+## We continue with asymmetric encryption algorithm
+```
 >>> import basic_crypto
 >>> pub, priv = basic_crypto.asymmetric_generate_keys()
 >>> plaintext = b"abcdefghijklmnop"
 >>> cipher = basic_crypto.asymmetric_encrypt(plaintext, pub)  # you should give the public key to anyone who wants to encrypt
 >>> decrypted = basic_crypto.asymmetric_decrypt(cipher, priv) # the only party who can decrypt, is the one in possession of the private key matching the public key
+```
 
-# We now take the most popular symmetric encryption algorithm: AES. Note that the input size must be exactly equal to 128 bits
+## We now take the most popular symmetric encryption algorithm: AES. 
+###Note that the input size must be exactly equal to 128 bits
+```
 >>> import aes
 >>> import secrets
 >>> cleartext = b"This is a test! " # this is exactly 16 bytes = 128 bits
@@ -24,8 +30,10 @@ Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
 >>> enc = aes.AES()
 >>> cipher = enc.encrypt(cleartext,key, enc.keySize["SIZE_256"])
 >>> decr = enc.decrypt(cipher,key, enc.keySize["SIZE_256"])
+```
 
-# Now we solve the issue of the fixed block size by using so-called modes of operation
+## Now we solve the issue of the fixed block size by using so-called modes of operation
+```
 >>> import secrets
 >>> import aesModeOfOperation
 >>> moo = aesModeOfOperation.AESModeOfOperation()
@@ -34,8 +42,10 @@ Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
 >>> iv = secrets.token_bytes(16)
 >>> mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CBC"], cipherkey, moo.aes.keySize["SIZE_128"], iv)
 >>> decr = moo.decrypt(ciph, orig_len, mode, cipherkey, moo.aes.keySize["SIZE_128"], iv)
+```
 
-# Diffie-Hellman is used to generate shared secrets by exchanging only public key information
+## Diffie-Hellman is used to generate shared secrets by exchanging only public key information
+```
 >>> import basic_dh
 >>> a = basic_dh.DiffieHellman(2048,7)
 >>> b = basic_dh.DiffieHellman(2048,7)
@@ -43,8 +53,10 @@ Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
 >>> pubb = b.gen_public_key()
 >>> shared_secret_ab = a.gen_shared_key(pubb)
 >>> shared_secret_ba = b.gen_shared_key(puba)
+```
 
-# Elliptical Curve Cryptogtraphy is an alternative method that can also be used for Diffie-Hellman
+## Elliptical Curve Cryptogtraphy is an alternative method that can also be used for Diffie-Hellman
+```
 >>> import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
 >>> g = basic_ec.StandardBasePoints["secp256k1"]
@@ -54,8 +66,10 @@ Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
 >>> pubb = b.gen_public_key()
 >>> shared_secret_ab = a.gen_shared_key(pubb)
 >>> shared_secret_ba = b.gen_shared_key(puba)
+```
 
-# We use ECDSA (Elliptical Curve Cryptography Digitaln Signature ALgorithm for digitally signing informnation
+## We use ECDSA (Elliptical Curve Cryptography Digitaln Signature ALgorithm for digitally signing informnation
+```
 >>> import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
 >>> g = basic_ec.StandardBasePoints["secp256k1"]
@@ -65,9 +79,11 @@ Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
 >>> d_receiver = basic_ec.DSA(ec,g)
 >>> d_receiver.validate(127,signature,public)
 True
+```
 
-# In order to digitally sign in practice, you need a hash algorithm
-# This can be done using a standard Python library
+## In order to digitally sign in practice, you need a hash algorithm
+### This can be done using a standard Python library
+```
 >>> import hashlib
 >>> m1 = hashlib.sha3_256()
 >>> message = b"this is not a secret, but you can calculate its hash so that you can compare it at a later stage"
@@ -76,9 +92,11 @@ True
 >>> hash1 = m1.digest()
 >>> hash2 = m1.hexdigest()
 >>> hash3 = int.from_bytes(m1.digest())
+```
 
-# We create a blockchain of simple transactions.
-# We also have identities, and each identity has a public key.
+## We create a blockchain of simple transactions.
+### We also have identities, and each identity has a public key.
+```
 >>> import basic_bc
 >>> me = basic_bc.MyIdentity("me",1)
 >>> you = basic_bc.MyIdentity("you",2)
@@ -113,3 +131,4 @@ True
 >>> b3 = basic_bc.Block(3,[t8], b2.hash,"participant/miner 1", "sha256",0)
 >>> b3.mine()
 >>> b3.hash
+```
