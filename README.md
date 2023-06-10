@@ -21,7 +21,7 @@ Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
 ```
 
 ## We now take the most popular symmetric encryption algorithm: AES. 
-###Note that the input size must be exactly equal to 128 bits
+### Note that the input size must be exactly equal to 128 bits
 ```
 >>> import aes
 >>> import secrets
@@ -58,6 +58,7 @@ Code snippets to learn cryptography. DO NOT USE IN PRODUCTION
 ## In case you need to convert key material of size x into key material of size y, use HKDF
 ```
 import secrets
+import hkdf
 input = secrets.token_bytes(16)
 output = hkdf.Hkdf.(None,input)
 ```
@@ -82,7 +83,7 @@ output = hkdf.Hkdf.(None,input)
 >>> shared_secret_ba = b.gen_shared_key(puba)
 ```
 
-## We use ECDSA (Elliptical Curve Cryptography Digital Signature Algorithm for digitally signing informnation
+## We use ECDSA (Elliptical Curve Cryptography Digital Signature Algorithm for digitally signing information
 ```
 >>> import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
