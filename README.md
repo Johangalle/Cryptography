@@ -63,11 +63,22 @@ input = secrets.token_bytes(16)
 output = hkdf.Hkdf.(None,input)
 ```
 
-## In case you need to convert int to bytes or bytes to int
+## In case you need to convert int to bytes or bytes to int or int to hex-string or hex-string to int
 ```
 >>> b = b"this is a byte string"
 >>> i = int.from_bytes(b)
+>>> i
+170130276577738348141904353322542212591924105801319
 >>> i_bytes = i.to_bytes((i.bit_length()+7)//8,"big")
+>>> i_bytes
+b'this is a byte string'
+>>> hs = hex(i)
+>>> hs
+'0x746869732069732061206279746520737472696e67'
+>>> i_fromh = int(hs[2:],16)
+>>> i_fromh
+170130276577738348141904353322542212591924105801319
+j = 0x746869732069732061206279746520737472696e67 # you can also just create an int using the hex representation
 ```
 
 ## Elliptical Curve Cryptogtraphy is an alternative method that can also be used for Diffie-Hellman
@@ -103,7 +114,7 @@ True
 >>> m1 = hashlib.sha3_256()
 >>> message = b"this is not a secret, but you can calculate its hash so that you can compare it at a later stage"
 >>> m1.update(message)
->>> # Try all three versions, but most of the, you need an integer (third form)
+>>> # Try all three versions, but most of the time, you need an integer (third form)
 >>> hash1 = m1.digest()
 >>> hash2 = m1.hexdigest()
 >>> hash3 = int.from_bytes(m1.digest())
