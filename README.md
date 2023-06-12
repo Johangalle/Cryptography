@@ -81,7 +81,7 @@ b'this is a byte string'
 j = 0x746869732069732061206279746520737472696e67 # you can also just create an int using the hex representation
 ```
 
-## Elliptical Curve Cryptogtraphy is an alternative method that can also be used for Diffie-Hellman
+## Elliptical Curve Cryptography is an alternative method that can also be used for Diffie-Hellman
 ```
 >>> import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
