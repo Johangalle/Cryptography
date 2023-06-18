@@ -78,11 +78,12 @@ b'this is a byte string'
 >>> hs2 = b.hex()
 >>> hs2
 '746869732069732061206279746520737472696e67'  # Note it does not start with 0x
->>> i_fromh = int(hs[2:],16)
+>>> i_fromh = int(hs1[2:],16)
 >>> i_fromh
 170130276577738348141904353322542212591924105801319
-j = 0x746869732069732061206279746520737472696e67 # you can also just create an int using the hex representation
-b = bytes.fromhex(hs2)
+>>> i_fromh = int(hs2,16)
+>>> j = 0x746869732069732061206279746520737472696e67 # you can also just create an int using the hex representation
+>>> b = bytes.fromhex(hs2)
 ```
 
 ## Elliptical Curve Cryptography is an alternative method that can also be used for Diffie-Hellman
