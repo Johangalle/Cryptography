@@ -84,6 +84,25 @@ b'this is a byte string'
 >>> i_fromh = int(hs2,16)
 >>> j = 0x746869732069732061206279746520737472696e67 # you can also just create an int using the hex representation
 >>> b = bytes.fromhex(hs2)
+>>>
+>>> st = "This is a string"
+>>> bst = st.encode()
+>>> bst
+b'This is a string'
+>>> cst = bst.decode()   # from a character string to a byte string to a character string works like this
+>>> cst
+'This is a string'       
+>>> cst == st
+True
+>>>
+>>> i = 982345082347082347023946    # just a random number
+>>> b = i.to_bytes((i.bit_length()+7)//8,"big")
+>>> b
+b'\xd0\x05\x08\x9b[\\\xbf\x19\x8eJ'
+>>> cst = b.decode()     # from a random bytes string to a character string does not work most of the time
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd0 in position 0: invalid continuation byte
 ```
 
 ## Elliptical Curve Cryptography is an alternative method that can also be used for Diffie-Hellman
