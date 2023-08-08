@@ -167,3 +167,12 @@ True
 >>> decrypt == plaintext
 True
 ```
+## Note that bytes do not have an xor operation
+```
+>>> plaintext = bytes.fromhex('abcdefabcdef')
+>>> masterkey = bytes.fromhex('123456789098')
+>>> cipher = bytes.fromhex(hex(int.from_bytes(plaintext)^int.from_bytes(masterkey))[2:])
+>>> decrypt = bytes.fromhex(hex(int.from_bytes(cipher)^int.from_bytes(masterkey))[2:])
+>>> decrypt == plaintext
+True
+```
