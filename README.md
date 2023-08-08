@@ -1,6 +1,8 @@
 # Cryptography
 Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION
 
+When you wish to import these files, just copy all files from the copde folder into an appropriate folder.
+
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
 >>> import basic_crypto
