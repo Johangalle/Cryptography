@@ -6,6 +6,7 @@ When you wish to import these files, just copy all files from the code folder in
 This file contains some short code snippets to give you an idea how everything works.
 
 More complete documentatio can be found here:
+
 [Symmetric encryption with XOR](xor.md)
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
