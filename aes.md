@@ -1,4 +1,4 @@
-# AES encryption
+# AES symmetric encryption and modes of operation
 
 ## Standard AES encryption (no modes of operation)
 ### Standard AES encryption (lists of integers, no modes of operation)
