@@ -55,29 +55,6 @@ True
 ### XOR symmetric encryption with ints using a long key and taking the appropriate length each time
 ...
 >>> masterkey = secrets.randbits(1000)
->>> plaintext = 0x1234567890abcdeffedcba
->>> len(hex(masterkey)), len(hex(plaintext))
-(252, 24)
->>> hex(plaintext)
-'0x1234567890abcdeffedcba'
->>> piece_of_master_key_hex = hex(masterkey)[2:26]
->>> len(piece_of_master_key_hex)
-24
->>> offset = 2
->>> true_length_of_plaintext = len(hex(plaintext)) - 2 #Because this representation starts with 0x
->>> true_length_of_plaintext
-22
->>> piece_of_master_key_hex = hex(masterkey)[offset:offset+true_length_of_plaintext]
->>> piece_of_master_key = int(piece_of_master_key_hex,16)
->>> len(hex(piece_of_master_key))
-24
->>> cipher = basic_crypto.symmetric_encrypt_xor(plaintext, piece_of_master_key)
->>> len(hex(cipher))
-24
->>> decrypted = basic_crypto.symmetric_encrypt_xor(cipher, piece_of_master_key)
->>> decrypted == plaintext
-True
->>> offset = offset + true_length_of_plaintext
 >>> offset    #next time, we start with this offset
 24
 ...
