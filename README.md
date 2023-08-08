@@ -3,6 +3,10 @@ Code snippets to learn cryptography without the need to use other libraries. DO 
 
 When you wish to import these files, just copy all files from the code folder into an appropriate folder.
 
+This file contains some short code snippets to give you an idea how everything works.
+
+More complete documentatio can be found here:
+(docs/xor.md)
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
 >>> import basic_crypto
