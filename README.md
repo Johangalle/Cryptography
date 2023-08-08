@@ -9,7 +9,7 @@ More complete documentation can be found here:
 
 * [Symmetric encryption with XOR](xor.md)
 * [Galois multiplication](galois.md)
-* [AES Symmetric encryption and  odes of operation](aes.md)
+* [AES Symmetric encryption and modes of operation](aes.md)
 
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
