@@ -15,7 +15,7 @@ More complete documentation can be found here:
 * [Diffie Hellman key exchange](diffie.md)
 * [Digital signature using ECDSA](signature/md)
 * [Blockchain basics](bl;ockchain.md)
-* * [Various conversions and Python specifics](various.md)
+* [Various conversions and Python specifics](various.md)
 
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
