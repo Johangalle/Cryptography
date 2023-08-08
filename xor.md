@@ -53,13 +53,37 @@ True
 >>> 
 ```
 ### XOR symmetric encryption with ints using a long key and taking the appropriate length each time
-...
+```
 >>> masterkey = secrets.randbits(1000)
+>>> plaintext = 0x1234567890abcdeffedcba
+>>> len(hex(masterkey)), len(hex(plaintext))
+(252, 24)
+>>> hex(plaintext)
+'0x1234567890abcdeffedcba'
+>>> piece_of_master_key_hex = hex(masterkey)[2:26]
+>>> len(piece_of_master_key_hex)
+24
+>>> offset = 2
+>>> true_length_of_plaintext = len(hex(plaintext)) - 2 #Because this representation starts with 0x
+>>> true_length_of_plaintext
+22
+>>> piece_of_master_key_hex = hex(masterkey)[offset:offset+true_length_of_plaintext]
+>>> piece_of_master_key = int(piece_of_master_key_hex,16)
+>>> len(hex(piece_of_master_key))
+24
+>>> cipher = basic_crypto.symmetric_encrypt_xor(plaintext, piece_of_master_key)
+>>> len(hex(cipher))
+24
+>>> decrypted = basic_crypto.symmetric_encrypt_xor(cipher, piece_of_master_key)
+>>> decrypted == plaintext
+True
+>>> offset = offset + true_length_of_plaintext
 >>> offset    #next time, we start with this offset
 24
-...
+```
 ## XOR symmetric encryption using bytes
 ### XOR symmetric encryption using bytes with equal length
+```
 >>> masterkey = secrets.token_bytes(16)
 >>> plaintext = b"abcdefghijklmnop"
 >>> cipher = basic_crypto.symmetric_encrypt_xor(plaintext,masterkey)
@@ -68,9 +92,9 @@ True
 True
 >>> len(plaintext), len(masterkey), len(cipher)
 (16, 16, 16)
-...
+```
 ### XOR symmetric encryption using bytes with unequal length
-...
+```
 >>> plaintext = b"12ab34cd56ef"
 >>> len(plaintext)
 12
@@ -100,9 +124,9 @@ OverflowError: cannot fit 'int' into an index-sized integer
 >>> decrypted2 = basic_crypto.symmetric_decrypt_xor(cipher2, masterkey)
 >>> decrypted2 == plaintext2
 True
-...
+```
 ### XOR symmetric encryption with bytes using a long key and taking the appropriate length each time
-...
+```
 >>> masterkey = secrets.token_bytes(1000)
 >>> plaintext = b"12ab34cd56ef"
 >>> len(plaintext)
@@ -123,10 +147,10 @@ b'~\xa7u\xfd\x91\x05\xc9\x9e\xcf\xb0P\xeb'
 >>> decrypted == plaintext
 True
 >>> offset = offset + length
-...
+```
 ## Note that encrypt_xor and decrypt_xor are actually identical and are just XOR
-...
+```
 >>> decrypted = basic_crypto.symmetric_encrypt_xor(cipher, piece_of_master_key)
 >>> decrypted == plaintext
 True
-...
+```
