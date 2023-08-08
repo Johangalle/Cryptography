@@ -167,7 +167,7 @@ True
 >>> decrypt == plaintext
 True
 ```
-## Note that bytes do not have an xor operation
+## Note that Python does not have an xor operation for bytes
 ```
 >>> plaintext = bytes.fromhex('abcdefabcdef')
 >>> masterkey = bytes.fromhex('123456789098')
