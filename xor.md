@@ -1,5 +1,8 @@
 # Encryption using xor
 Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION
+XOR is the easiest algorithm for encryption / decry[ption. 
+The one-time-pad is perfectly secure but is not practical; because of the huge key sizes that need to be transferred.
+The one-time-pad requires the key to be random and never to be used more than once.
 
 ## XOR symmetric encryption using int
 ### XOR symmetric encryption using int with equal length
