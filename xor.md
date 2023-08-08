@@ -156,4 +156,14 @@ True
 >>> decrypted = basic_crypto.symmetric_encrypt_xor(cipher, piece_of_master_key)
 >>> decrypted == plaintext
 True
+>>> plaintext = 0x12345678
+>>> masterkey = 0x87654321
+>>> cipher1 = plaintext^masterkey
+>>> from operator import xor
+>>> cipher2 = xor(plaintext,masterkey)
+>>> cipher1 == cipher2
+True
+>>> decrypt = cipher1^masterkey
+>>> decrypt == plaintext
+True
 ```
