@@ -86,7 +86,7 @@ Polynomial (modulo 2) : 1*x+1
 ## Example irreducible polynomials
 Irreducible polynomials cannot be divided by any other smaller degree polynomial.
 
-Determining irreducible polynomials is considered out of scope of the course.
+Determining irreducible polynomials is considered out of scope of the course. For meaningful multiplication, you alswys need an irreducible polynomial. Such a polynomial shall always be supplied if required.
 
 ```
 x+1
