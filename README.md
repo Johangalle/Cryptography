@@ -155,10 +155,3 @@ True
 >>> b3.mine()
 >>> b3.hash
 ```
-## Reading and writing binary files:
-```
->>> with open('some_file_name.ext', 'rb') as file:
-...     binary_data = file.read()  # The result is a bytes object that can be used as input to the other functions
->>> with open("new_file.ext", "wb") as file:
-...     file.write(binary_data)
-```
