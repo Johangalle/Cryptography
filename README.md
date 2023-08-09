@@ -13,7 +13,7 @@ More complete documentation can be found here:
 * [Stream ciphers and symmetric encryption](stream.md)
 * [RSA asymmetric encryption](RSA.md)
 * [Diffie Hellman key exchange and Elgamal encryption](diffie.md)
-* [Digital signature using ECDSA](signature/md)
+* [Elliptical curve cryptography](ec.md)
 * [Blockchain basics](bl;ockchain.md)
 * [Various conversions and Python specifics](various.md)
 
