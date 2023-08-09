@@ -8,7 +8,7 @@ This file contains some short code snippets to give you an idea how everything w
 More complete documentation can be found here:
 
 * [Symmetric encryption with XOR](xor.md)
-* [Galois multiplication](galois.md)
+* [Galois multiplication](Galois.md)
 * [AES Symmetric encryption and modes of operation](aes.md)
 * [Stream ciphers and symmetric encryption](stream.md)
 * [RSA asymmetric encryption](rsa.md)
