@@ -1,6 +1,6 @@
 # AES symmetric encryption and modes of operation
 
-## Standard AES encryption (no modes of operation)
+## Standard AES encryption (no modes of operation, exactly one block)
 ### Standard AES encryption (lists of integers, no modes of operation)
 ```
 >>> import aes
@@ -95,6 +95,19 @@ True
 >>> decr == cleartext
 True
 ```
+### Standard AES encryption (key = list of integers, mode of operation CTR, key size 128 bits / 16 bytes)
+```
+>>> import aesModeOfOperation
+>>> import secrets
+>>> moo = aesModeOfOperation.AESModeOfOperation()
+>>> cleartext = "This is a test! This is a test! This is a test!"
+>>> cipherkey = [143,194,34,208,145,203,230,143,177,246,97,206,145,92,255,84]
+>>> iv = [103,35,148,239,76,213,47,118,255,222,123,176,106,134,98,92]
+>>> mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CTR"],cipherkey, moo.aes.keySize["SIZE_128"], iv)
+>>> decr = moo.decrypt(ciph, orig_len, mode, cipherkey,moo.aes.keySize["SIZE_128"], iv)
+>>> decr == cleartext
+True
+```
 ### Standard AES encryption (key = bytes, mode of operation CBC, key size 128 bits / 16 bytes)
 ```
 >>> import aesModeOfOperation
@@ -117,6 +130,32 @@ True
 >>> cipherkey = secrets.token_bytes(32)
 >>> iv = secrets.token_bytes(16)
 >>> mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CBC"],cipherkey, moo.aes.keySize["SIZE_256"], iv)
+>>> decr = moo.decrypt(ciph, orig_len, mode, cipherkey,moo.aes.keySize["SIZE_256"], iv)
+>>> decr == cleartext
+True
+```
+### Standard AES encryption (key = bytes, mode of operation CTR, key size 128 bits / 16 bytes)
+```
+>>> import aesModeOfOperation
+>>> import secrets
+>>> moo = aesModeOfOperation.AESModeOfOperation()
+>>> cleartext = "This is a test! This is a test! This is a test!"
+>>> cipherkey = secrets.token_bytes(16)
+>>> iv = secrets.token_bytes(16)
+>>> mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CTR"],cipherkey, moo.aes.keySize["SIZE_128"], iv)
+>>> decr = moo.decrypt(ciph, orig_len, mode, cipherkey,moo.aes.keySize["SIZE_128"], iv)
+>>> decr == cleartext
+True
+```
+### Standard AES encryption (key = bytes, mode of operation CTR, key size 256 bits / 32 bytes)
+```
+>>> import aesModeOfOperation
+>>> import secrets
+>>> moo = aesModeOfOperation.AESModeOfOperation()
+>>> cleartext = "This is a test! This is a test! This is a test!"
+>>> cipherkey = secrets.token_bytes(32)
+>>> iv = secrets.token_bytes(16)
+>>> mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CTR"],cipherkey, moo.aes.keySize["SIZE_256"], iv)
 >>> decr = moo.decrypt(ciph, orig_len, mode, cipherkey,moo.aes.keySize["SIZE_256"], iv)
 >>> decr == cleartext
 True
