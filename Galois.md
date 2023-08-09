@@ -83,3 +83,10 @@ Polynomial (modulo 2) : 1*x+1
 >>> galois.galois_multiply(i,228,irred8)
 1
 ```
+## Example irreducible polynomials
+```
+x+1
+x^2 + x + 1
+x^3 + x + 1
+x^3 + x^2 + 1
+```
