@@ -3,7 +3,7 @@ Code snippets to learn cryptography without the need to use other libraries. DO 
 
 Stream ciphers essentially require you to generate a pseudo-random stream and to XOR this with plaintext / ciphertext.
 
-Modern stream ciphers also have an initialisation. This is not shown in these (simple) examples.
+Modern stream ciphers also have an initialisation vector. This is not shown in these (simple) examples.
 
 LFSR (Linear Feedback Shift Registers) are a component opf modern stream ciphers. As a standalone means, they are not a suitable stream cipher.
 
