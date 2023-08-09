@@ -163,7 +163,7 @@ True
 >>> decr == cleartext
 True
 ```
-## Small symmetric encryption example
+## Small symmetric encryption block cipher example
 A simple symmetric encryption algorithm with block size 128 bits. It consists of 1 round only. 
 The sequence of operations is an S-box substitution, a permutation, and an XOR with a key.
 * The S-box: see [slide](https://en.wikipedia.org/wiki/Rijndael_S-box)
