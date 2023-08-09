@@ -1,9 +1,11 @@
-# Encryption using xor
+# Symmetric encryption using xor
 Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION.
 
 XOR is the easiest algorithm for encryption / decryption. 
 The one-time-pad is perfectly secure but is not practical; because of the huge key sizes that need to be transferred.
 The one-time-pad requires the key to be random and never to be used more than once.
+
+The encryption is referred to as symmetric because we need the same key on both sides (sender and receiver / Alice and Bob). Another term for symmetric encryption is "secret key encryption".
 
 ## XOR symmetric encryption using int
 ### XOR symmetric encryption using int with equal length
