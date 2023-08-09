@@ -96,9 +96,9 @@ ValueError: multiplicative inverse is not possible if values are not relatively 
 >>> n.bit_length(), p.bit_length(), q.bit_length()
 (4190, 2098, 2092)
 >>> totient_n = (p-1)*(q-1)
->>> e = 65537
+>>> e = 65537      # This is a convention
 >>> bin(e)
-'0b10000000000000001'
+'0b10000000000000001'     # The exponentiation function is more efficient with fewer 1's
 >>> d = euclidean.mulinv(e, totient_n)
 >>> plain = 1234567890987654321    # should be smaller than n
 >>> cipher = pow(plain,e,n)
@@ -107,10 +107,6 @@ ValueError: multiplicative inverse is not possible if values are not relatively 
 1234567890987654321
 >>> 
 >>> reduced_totient = euclidean.lcm(p-1, q-1)
->>> d = euclidean.mulinv(e, reduced_totient_n)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'reduced_totient_n' is not defined. Did you mean: 'reduced_totient'?
 >>> d = euclidean.mulinv(e, reduced_totient)
 >>> plain = 1234567890987654321 
 >>> cipher = pow(plain,e,n)
