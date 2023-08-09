@@ -1,10 +1,10 @@
-# Diffie-Hellman key exchange
+# Diffie-Hellman key exchange and Elgamal encryption
 Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION.
 
 Diffie-Hellman is an interactive protocol that allows to derive a shared secret between two parties. 
 The protocol is based on public key cryptography. This shared secret can then be used to derive a symmetric encryption key.
-
-## Diffie-Hellman, discrete logarithm (small numbers)
+## Diffie-Hellman key exchange
+### Diffie-Hellman, discrete logarithm (small numbers)
 ```
 >>> alpha = 7
 >>> q = 71
@@ -28,7 +28,7 @@ True
 >>> shared_secret_a
 30
 ```
-## Diffie-Hellman, default example
+### Diffie-Hellman, default example
 ```
 >>> import basic_dh
 >>> a = basic_dh.DiffieHellman()
@@ -43,7 +43,7 @@ True
 >>> shared_secret_a == shared_secret_b
 True
 ```
-## Diffie-Hellman, example with standard group parameters
+### Diffie-Hellman, example with standard group parameters
 ```
 >>> import basic_dh
 >>> a = basic_dh.DiffieHellman(8192,2)
@@ -58,7 +58,7 @@ True
 >>> shared_secret_a == shared_secret_b
 True
 ```
-## Diffie-Hellman, example with non-standard group parameters
+### Diffie-Hellman, example with non-standard group parameters
 ```
 >>> import basic_dh
 >>> a = basic_dh.DiffieHellman(1024,0)
@@ -74,7 +74,7 @@ determining non standard group parameters (takes some time)
 >>> shared_secret_a == shared_secret_b
 True
 ```
-# Encryption with Elgamal
+## Asymmetric encryption with Elgamal
 ```
 >>> import basic_dh
 >>> eg_a = basic_dh.ElGamal(4096,3)
