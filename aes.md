@@ -1,4 +1,7 @@
 # AES symmetric encryption and modes of operation
+Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION
+
+AES (Advanced Encryption System) is the most popular symmetric encryption algorithm.
 
 ## Standard AES encryption (no modes of operation, exactly one block)
 ### Standard AES encryption (lists of integers, no modes of operation)
