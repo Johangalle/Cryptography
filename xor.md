@@ -168,7 +168,7 @@ True
 >>> decrypt == plaintext
 True
 ```
-## Note that Python does not have an xor operation for bytes
+## Note that Python does not have a standard xor operation for bytes (see basic_crypto.byte_xor)
 ```
 >>> plaintext = bytes.fromhex('abcdefabcdef')
 >>> masterkey = bytes.fromhex('123456789098')
@@ -176,4 +176,12 @@ True
 >>> decrypt = bytes.fromhex(hex(int.from_bytes(cipher)^int.from_bytes(masterkey))[2:])
 >>> decrypt == plaintext
 True
+>>> import basic_crypto
+>>> plaintext = bytes.fromhex('abcdefabcdef')
+>>> masterkey = bytes.fromhex('123456789098')
+>>> cipher = basic_crypto.byte_xor(plaintext, masterkey)
+>>> decrypt = basic_crypto.byte_xor(cipher, masterkey)
+>>> decrypt == plaintext
+True
+
 ```
