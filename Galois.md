@@ -84,9 +84,62 @@ Polynomial (modulo 2) : 1*x+1
 1
 ```
 ## Example irreducible polynomials
+Irreducible polynomials cannot be divided by any other smaller degree polynomial.
+
+Determining irreducible polynomials is considered out of scope of the course.
+
 ```
 x+1
 x^2 + x + 1
 x^3 + x + 1
 x^3 + x^2 + 1
+x^4 + x + 1
+x^4 + x^3 + 1
+x^5 + x^2 + 1
+x^5 + x^3 + 1
+x^5 + x^3 + x^2 + x + 1
+x^5 + x^4 + x^2 + x + 1
+x^5 + x^4 + x^3 + x + 1
+x^5 + x^4 + x^3 + x^2 + 1
+x^6 + x + 1
+x^6 + x^4 + x^3 + x + 1
+x^6 + x^5 + 1
+x^6 + x^5 + x^2 + x + 1
+x^6 + x^5 + x^3 + x^2 + 1
+x^6 + x^5 + x^4 + x + 1
+x^7 + x + 1
+x^7 + x^3 + 1
+x^7 + x^3 + x^2 + x + 1
+x^7 + x^4 + 1
+x^7 + x^4 + x^3 + x^2 + 1
+x^7 + x^5 + x^2 + x + 1
+x^7 + x^5 + x^3 x + 1
+x^7 + x^5 + x^4 + x^3 + 1
+x^7 + x^5 + x^4 + x^3 + x^2 + x + 1
+x^7 + x^6 + 1
+x^7 + x^6 + x^3 + x + 1
+x^7 + x^6 + x^4 + x + 1
+x^7 + x^6 + x^4 + x^2 + 1
+x^7 + x^6 + x^5 + x^2 + 1
+x^7 + x^6 + x^5 + x^3 + x^2 + x + 1
+x^7 + x^6 + x^5 + x^4 + 1
+x^7 + x^6 + x^5 + x^4 + x^2 + x + 1
+x^7 + x^6 + x^5 + x^4 + x^3 + x^2 + 1
+x^8 + x^4 + x^3 + x + 1
+x^8 + x^4 + x^3 + x^2 + 1
+x^8 + x^5 + x^3 + x + 1
+x^8 + x^5 + x^3 + x^2 + 1
+x^8 + x^6 + x^3 + x^2 + 1
+x^8 + x^6 + x^4 + x^3 + x^2 + x + 1
+x^8 + x^6 + x^5 + x + 1
+x^8 + x^6 + x^5 + x^2 + 1
+x^8 + x^6 + x^5 + x^3 + 1
+x^8 + x^6 + x^5 + x^4 + 1
+x^8 + x^7 + x^2 + x + 1
+x^8 + x7 + x3 + x2 + 1
+x^8 + x7 + x5 + x3 + 1
+x^8 + x7 + x6 + x + 1
+x^8 + x^7 + x^6 + x^3 + x^2 + x + 1
+x^8 + x^7 + x^6 + x^5 + x^2 + x + 1
+x^8 + x^7 + x^6 + x^5 + x^4 + x^2 + 1
 ```
