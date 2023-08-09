@@ -78,6 +78,8 @@ ValueError: multiplicative inverse is not possible if values are not relatively 
 >>> decrypt = pow(cipher,d,n)
 >>> decrypt
 1234
+>>> public = (n,e)
+>>> private = (n,d)
 >>> 
 >>> totient_n/3
 780.0
