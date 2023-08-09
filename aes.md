@@ -1,4 +1,4 @@
-# AES symmetric encryption and modes of operation
+# Symmetric encryption and modes of operation
 Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION
 
 AES (Advanced Encryption System) is the most popular symmetric encryption algorithm.
@@ -162,4 +162,26 @@ True
 >>> decr = moo.decrypt(ciph, orig_len, mode, cipherkey,moo.aes.keySize["SIZE_256"], iv)
 >>> decr == cleartext
 True
+```
+## Small symmetric encryption example
+A simple symmetric encryption algorithm with block size 128 bits. It consists of 1 round only. 
+The sequence of operations is an S-box substitution, a permutation, and an XOR with a key.
+* The S-box: see [slide](https://en.wikipedia.org/wiki/Rijndael_S-box)
+* The permutation permutes bytes. Say we have b = 0x1234567890, and s = [3,2,4,1,0], then permute (b,s) = 0x5612347890. In this case, we need to permute the 128 bits sequence according to this sequence: [15, 0, 14, 1, 13, 2, 12, 3, 11, 4, 10, 5, 9, 6, 8, 7]
+* The key is 0x1032547698BADCFE1032547698BADCFE
+* The input is 0x01002300450067008900AB00CD00EF00
+* Question: what is the cipher (in hex)?
+```
+>>> import permute
+>>> key = bytes.fromhex('1032547698BADCFE1032547698BADCFE')
+>>> input = 0x01002300450067008900AB00CD00EF00
+>>> Sbox  = 0x766326636e638563a7636263bd63df63
+>>> Sbox = bytes.fromhex('766326636e638563a7636263bd63df63')
+>>> per = permute.permute(Sbox, [15, 0, 14, 1, 13, 2, 12, 3, 11, 4, 10, 5, 9, 6, 8, 7])
+>>> import basic_crypto
+>>> cipher = basic_crypto.byte_xor(per, key)
+>>> cipher
+b'f\x14:\xf3?\xd8a!sQ7\x15\xfb\xd9\xbf\x9d'
+>>> cipher.hex()
+'66143af33fd8612173513715fbd9bf9d'
 ```
