@@ -12,7 +12,7 @@ More complete documentation can be found here:
 * [AES Symmetric encryption and modes of operation](aes.md)
 * [Stream ciphers and symmetric encryption](stream.md)
 * [RSA asymmetric encryption](RSA.md)
-* [Diffie Hellman key exchange](diffie.md)
+* [Diffie Hellman key exchange and Elgamal encryption](diffie.md)
 * [Digital signature using ECDSA](signature/md)
 * [Blockchain basics](bl;ockchain.md)
 * [Various conversions and Python specifics](various.md)
