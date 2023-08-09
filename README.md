@@ -11,7 +11,7 @@ More complete documentation can be found here:
 * [Galois multiplication](Galois.md)
 * [AES Symmetric encryption and modes of operation](aes.md)
 * [Stream ciphers and symmetric encryption](stream.md)
-* [RSA asymmetric encryption](rsa.md)
+* [RSA asymmetric encryption](RSA.md)
 * [Diffie Hellman key exchange](diffie.md)
 * [Digital signature using ECDSA](signature/md)
 * [Blockchain basics](bl;ockchain.md)
