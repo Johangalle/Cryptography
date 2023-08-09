@@ -1,6 +1,14 @@
 # Stream cipher encryption
+Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION.
+
+Stream ciphers essentially require you to generate a pseudo-random stream and to XOR this with plaintext / ciphertext.
+
+Modern stream ciphers also have an initialisation. This is not shown in these (simple) examples.
+
+LFSR (Linear Feedback Shift Registers) are a component opf modern stream ciphers. As a standalone means, they are not a suitable stream cipher.
+
 ## Obtain some stream of bytes and xor it with plain / cipher
-'''
+```
 >>> import random
 >>> secret_number = 123456789
 >>> random.seed(secret_number)    # to ensure that the other side can generate the same pseudo-random number 
@@ -21,9 +29,9 @@ b'some very secret plaintext that I want to encrypt using a stream'
 True
 >>> offset = offset + len(plain)     # Do not reuse the same part of a stream more than once
 >>> 
-'''
+```
 ## Use a linear feedback shift register as stream cipher
-'''
+```
 >>> import permute
 >>> seed = 0x12345678    # this is a 32 bit number; seed.bit_length() is actually 29, so the first 3 bits are 0
 >>> mask = 0b10000000000000000000000000000100   # these are 32 bits; shift forward of the lfsr transforms s0-s31 by calculating s32 = s0 + s29 and dropping s0.
@@ -41,4 +49,4 @@ b'some very secret plaintext that I want to encrypt using a stream'
 >>> decrypt == plain
 True
 >>> offset = offset + len(plain)
-'''
+```
