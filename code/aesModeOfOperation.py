@@ -15,11 +15,11 @@
 # http://www.apache.org/licenses/
 #
 # The main addition done by this contribution is to both support byte strings and standard strings,
-# as cleartext as well as ciphertext.
+# as cleartext as well as ciphertext, and also adding CTR as a mode of operation.
 # For the key and initialization vectors, both arrays of ints and byte strings are supported.
 #
 # This module uses the aes encryption algorithm and adds modes of operation.
-# Only the modes of operation OFB, CFB and CBC are supported.
+# The modes of operation OFB, CFB, CBC and CTR are supported.
 # No authenticated modes of encryption are supported.
 # A pure block cipher suc as AES can only encrypt/decrypt the exact block size input, i.e. 128 bits.
 # Modes of operation extend this encrypt/decrypt capability to arbitrary lengths.
@@ -58,6 +58,15 @@ class AESModeOfOperation(object):
             j += 1
             i += 1
         return ar
+
+    def convertToList(self, ctr):
+        """
+        The ctr value is a (large) number; the return value should be a list of ints (bytes)
+        """
+        hexstr = hex(ctr)[2:]
+        if len(hexstr) % 2 == 1:
+            hexstr = '0' + hexstr
+        return list(bytes.fromhex(hexstr))
 
     # Mode of Operation Encryption
     # stringIn - Input String
@@ -154,6 +163,26 @@ class AESModeOfOperation(object):
                         cipherOut += ciphertext
                     else:
                         for k in range(16):
+                            cipherOut.append(ciphertext[k])
+                elif mode == self.modeOfOperation["CTR"]:
+                    if firstRound:
+                        counter = int.from_bytes(bytes(IV[0:12] + [0,0,0,0]))
+                        counterlist = self.convertToList(counter)
+                        output = self.aes.encrypt(counterlist, key, size)
+                        firstRound = False
+                    else:
+                        counter = counter + 1
+                        counterlist = self.convertToList(counter)
+                        output = self.aes.encrypt(counterlist, key, size)
+                    for i in range(16):
+                        if len(plaintext)-1 < i:
+                            ciphertext[i] = 0 ^ output[i]
+                        else:
+                            ciphertext[i] = plaintext[i] ^ output[i]
+                    if bytes_string:
+                        cipherOut += bytes(ciphertext)[:end-start]
+                    else:
+                        for k in range(end-start):
                             cipherOut.append(ciphertext[k])
         return mode, len(stringIn), cipherOut
 
@@ -260,6 +289,27 @@ class AESModeOfOperation(object):
                             for k in range(end-start):
                                 stringOut += chr(plaintext[k])
                     iput = ciphertext
+                elif mode == self.modeOfOperation["CTR"]:
+                    if firstRound:
+                        counter = int.from_bytes(bytes(IV[0:12] + [0,0,0,0]))
+                        counterlist = self.convertToList(counter)
+                        output = self.aes.encrypt(counterlist, key, size)
+                        firstRound = False
+                    else:
+                        counter = counter + 1
+                        counterlist = self.convertToList(counter)
+                        output = self.aes.encrypt(counterlist, key, size)
+                    for i in range(16):
+                        if len(ciphertext)-1 < i:
+                            plaintext[i] = output[i] ^ 0
+                        else:
+                            plaintext[i] = output[i] ^ ciphertext[i]
+                    if bytes_string:
+                        stringOut += bytes(plaintext)[:end-start]
+                    else:
+                        for k in range(end-start):
+                            stringOut += chr(plaintext[k])
+                    iput = ciphertext
         return stringOut
 
 
@@ -349,15 +399,22 @@ if __name__ == "__main__":
     decr = moo.decrypt(ciph, orig_len, mode, cipherkey,
             moo.aes.keySize["SIZE_128"], iv)
     assert decr == cleartext
+    
+    cleartext = "This is a test! This is a test! This is a test!"
+    cipherkey = [143,194,34,208,145,203,230,143,177,246,97,206,145,92,255,84]
+    iv = [103,35,148,239,76,213,47,118,255,222,123,176,106,134,98,92]
+    mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CTR"],
+            cipherkey, moo.aes.keySize["SIZE_128"], iv)
+    decr = moo.decrypt(ciph, orig_len, mode, cipherkey,
+            moo.aes.keySize["SIZE_128"], iv)
+    assert decr == cleartext
 
     moo = AESModeOfOperation()
     cleartext = b"This is a test! This is a test! This is a test!"
     cipherkey = secrets.token_bytes(16)
     iv = secrets.token_bytes(16)
-    mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CBC"],
-            cipherkey, moo.aes.keySize["SIZE_128"], iv)
-    decr = moo.decrypt(ciph, orig_len, mode, cipherkey,
-            moo.aes.keySize["SIZE_128"], iv)
+    mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CBC"], cipherkey, moo.aes.keySize["SIZE_128"], iv)
+    decr = moo.decrypt(ciph, orig_len, mode, cipherkey, moo.aes.keySize["SIZE_128"], iv)
     assert decr == cleartext
 
     moo = AESModeOfOperation()
@@ -435,6 +492,46 @@ if __name__ == "__main__":
     cipherkey = secrets.token_bytes(32)
     iv = secrets.token_bytes(16)
     mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CFB"],
+            cipherkey, moo.aes.keySize["SIZE_256"], iv)
+    decr = moo.decrypt(ciph, orig_len, mode, cipherkey,
+            moo.aes.keySize["SIZE_256"], iv)
+    assert decr == cleartext
+
+    moo = AESModeOfOperation()
+    cleartext = b"This is a test! This is a test! This is a test!"
+    cipherkey = secrets.token_bytes(16)
+    iv = secrets.token_bytes(16)
+    mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CTR"],
+            cipherkey, moo.aes.keySize["SIZE_128"], iv)
+    decr = moo.decrypt(ciph, orig_len, mode, cipherkey,
+            moo.aes.keySize["SIZE_128"], iv)
+    assert decr == cleartext
+
+    moo = AESModeOfOperation()
+    cleartext = b"This is a test! "
+    cipherkey = secrets.token_bytes(24)
+    iv = secrets.token_bytes(16)
+    mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CTR"],
+            cipherkey, moo.aes.keySize["SIZE_192"], iv)
+    decr = moo.decrypt(ciph, orig_len, mode, cipherkey,
+            moo.aes.keySize["SIZE_192"], iv)
+    assert decr == cleartext
+
+    moo = AESModeOfOperation()
+    cleartext = b"This is a test!"
+    cipherkey = secrets.token_bytes(32)
+    iv = secrets.token_bytes(16)
+    mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CTR"],
+            cipherkey, moo.aes.keySize["SIZE_256"], iv)
+    decr = moo.decrypt(ciph, orig_len, mode, cipherkey,
+            moo.aes.keySize["SIZE_256"], iv)
+    assert decr == cleartext
+
+    moo = AESModeOfOperation()
+    cleartext = secrets.token_bytes(10000)
+    cipherkey = secrets.token_bytes(32)
+    iv = secrets.token_bytes(16)
+    mode, orig_len, ciph = moo.encrypt(cleartext, moo.modeOfOperation["CTR"],
             cipherkey, moo.aes.keySize["SIZE_256"], iv)
     decr = moo.decrypt(ciph, orig_len, mode, cipherkey,
             moo.aes.keySize["SIZE_256"], iv)

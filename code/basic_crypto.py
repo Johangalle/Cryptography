@@ -25,8 +25,15 @@ import euclidean
 
 # to have a good level of security, the key used should have approximately the same length as the plaintext
 
-def byte_xor(ba1, ba2):
+def byte_xor_old (ba1, ba2):
     return bytes([_a ^ _b for _a, _b in zip(ba1, ba2)])
+    
+def byte_xor(ba1, ba2):
+    maxlen = max(len(ba1),len(ba2))
+    int_ba1 = int.from_bytes(ba1)
+    int_ba2 = int.from_bytes(ba2)
+    int_xor = int_ba1 ^ int_ba2
+    return int_xor.to_bytes(maxlen)
 
 def symmetric_encrypt_xor(plaintext, key):
     if isinstance(plaintext,int) and isinstance(key,int):

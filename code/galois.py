@@ -181,6 +181,8 @@ class Polynomial:
             raise ValueError ("multiplication of polynomials requires identical moduli")
         if self.irreducible_polynomial != obj.irreducible_polynomial:
             raise ValueError ("multiplication of polynomials requires identical irreducible polynomials")
+        if self.irreducible_polynomial == None:
+            raise ValueError ("multiplication of polynomials requires setting irreducible polynomials")
         if degree >= self.irreducible_polynomial.real_degree():
             raise ValueError("Multiplication of polynomials requires irredicuble polynomial of at least one degree higher than the highest degree of the polynomial terms of the multiplication")
         if self.real_degree() == degree:
@@ -421,3 +423,5 @@ if __name__ == "__main__":
     i = galois_inverse(1, irred8)
     res = galois_multiply(i,1,irred8)
     assert(res==1)
+
+
