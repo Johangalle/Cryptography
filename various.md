@@ -48,7 +48,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd0 in position 0: invalid continuation byte
 ```
-## Converting binary to base64 and back
+## Converting between binary and base64
 ```
 >>> import base64
 >>> import secrets
