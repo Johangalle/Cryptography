@@ -99,7 +99,7 @@ True
 >>> shares3
 [[1, 28], [2, 106], [3, 27], [4, 61], [5, 55], [6, 21], [7, 0]]
 >>> shamir.reconstructSecret(shares3, p)      # This result is correct because t = 4 implies a 3rd degree polynomial
-                                              # Multiplying 2 3rd degree polynomials results is a 6th degree polynomial
+                                              # Multiplying 2 3rd degree polynomials results in a 6th degree polynomial
                                               # n = 7 points and thsi is enough to uniquely identify a 6th degree polynomial
 48
 >>> 
@@ -118,7 +118,7 @@ True
 >>> shares3
 [[1, 78], [2, 40], [3, 92], [4, 51], [5, 32], [6, 44], [7, 34]]
 >>> shamir.reconstructSecret(shares3, p)      # These are 2 4th egree polynomials (t = 5).
-                                              # Multiplying them results in a 8th degree polynomial
+                                              # Multiplying these results in a 8th degree polynomial
                                               # We would need 9 points to uniquely identify such polynomial but we only have 7 points
                                               # So, the result is completely random
 70
