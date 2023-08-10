@@ -1,4 +1,7 @@
 # A smalll blockchain example
+Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION.
+
+This is just a simple example showing the blockchain essentials.
 ```
 >>> import basic_bc
 >>> me = basic_bc.MyIdentity("me",1)
