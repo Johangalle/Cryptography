@@ -1,4 +1,7 @@
 # Short summary
+Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION.
+
+For more examples, see the other documentation.
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
 >>> import basic_crypto
