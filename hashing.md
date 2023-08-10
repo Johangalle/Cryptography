@@ -11,7 +11,7 @@ Hashing is a building block of many cryptograpohic constructs.
 >>> m1.update(message)
 >>> # Try all three versions, but most of the time, you need an integer (third form)
 >>> hash1 = m1.digest()
->>> hash2 = m1.hexdigest()
+>>> hash2 = m1.hexdigest()      # You could also do hash1.hex()
 >>> hash3 = int.from_bytes(m1.digest())
 >>> hash1
 b'4 \xc9\xfc\xdd\xc0\xfc@\x06\xdc\xa1\x97\xca\xe9\xedX/s\x08\xcb?\x00Zb\x8a\xde1\x9b\x19\xde\x0c\x83'
