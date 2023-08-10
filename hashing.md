@@ -1,4 +1,8 @@
 # Hashing (including password hashing)
+Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION.
+
+Hashing is a building block of many cryptograpohic constructs.
+
 ## Standard (cryptographic) hashing
 ```
 >>> import hashlib
