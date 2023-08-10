@@ -18,5 +18,7 @@ More complete documentation can be found here:
 * [Secret sharing](secretsharing.md)
 * [Blockchain basics](blockchain.md)
 * [Various conversions and Python specifics](various.md)
+
+If you just want a short overview, look at this summery:
 * [A short summary of all scripts](summary.md)
 
