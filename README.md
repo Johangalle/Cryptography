@@ -14,6 +14,7 @@ More complete documentation can be found here:
 * [RSA asymmetric encryption](RSA.md)
 * [Diffie Hellman key exchange and Elgamal encryption](diffie.md)
 * [Elliptical curve cryptography](ec.md)
+* [Hashing](hashing.md)
 * [Blockchain basics](bl;ockchain.md)
 * [Various conversions and Python specifics](various.md)
 * [A short summary of all scripts](summary.md)
