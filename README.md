@@ -16,7 +16,7 @@ More complete documentation can be found here:
 * [Elliptical curve cryptography](ec.md)
 * [Hashing](hashing.md)
 * [Secret sharing](secretsharing.md)
-* [Blockchain basics](bl;ockchain.md)
+* [Blockchain basics](blockchain.md)
 * [Various conversions and Python specifics](various.md)
 * [A short summary of all scripts](summary.md)
 
