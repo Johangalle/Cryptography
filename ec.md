@@ -100,3 +100,16 @@ True
 >>> d_receiver.validate(hash_value+1,signature, public_sender)
 False
 ```
+## Elliptical curves supplied in basic_ec
+```
+"Anomalous"
+"P-192"
+"P-224"
+"P-256"
+"P-384"
+"secp256k1"
+"BN(2,254)"
+"brainpoolP256t1"
+"FRP256v1"
+"brainpoolP384t1"
+```
