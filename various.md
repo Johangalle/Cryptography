@@ -1,4 +1,6 @@
 # Various Python examples
+Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION.
+
 ## Convert between int, bytes and hex-string
 ```
 >>> b = b"this is a byte string"
