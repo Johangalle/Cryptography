@@ -1,3 +1,4 @@
+# Short summary
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
 >>> import basic_crypto
