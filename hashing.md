@@ -31,7 +31,7 @@ b'4 \xc9\xfc\xdd\xc0\xfc@\x06\xdc\xa1\x97\xca\xe9\xedX/s\x08\xcb?\x00Zb\x8a\xde1
 ```
 ## Password hashing with Argon2 or with PBKDF2
 ```
->>> import argon2
+>>> from cryptocourse import argon2
 >>> pw_hash = argon2.argon2(b"password", b"salt", 20, 1000, 1)    # 20 is the number of iterations, 1000 is the memory cost, 1 is the amount of threads
 >>> pw_hash
 b'\xb1\xd9\x1b\x0e\x8f\x07\x9f\x92\x05\xe9\x80\xa1\xbd\xfc\xdcg\x92\xce\xc1~i\x99\x90\x06\xef\xf1\xc6\xa9A\xad\nr'
