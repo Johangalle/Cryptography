@@ -5,7 +5,7 @@ Secret sharing allows to split a secret into a number of shares in a (t,n) schem
 
 ## Secret sharing with default parameters
 ```
->>> import shamir
+>>> from cryptocourse import shamir
 >>> t,n = 3,7
 >>> secret = 1234
 >>> shares = shamir.generateShares(n,t,secret)    # all calculations are done using a default prime as modulo
@@ -24,7 +24,7 @@ True
 ```
 ## Secret sharing with a chosen prime as modulo
 ```
->>> import shamir
+>>> from cryptocourse import shamir
 >>> t,n = 3,7
 >>> secret = 12
 >>> p = 113
@@ -46,7 +46,7 @@ True
 ```
 ## Secret sharing, Shamir style
 ```
->>> import shamir
+>>> from cryptocourse import shamir
 >>> t,n = 3,7
 >>> secret = 12
 >>> p = 113
@@ -65,7 +65,7 @@ True
 ```
 ## Adding shares, Shamir style
 ```
->>> import shamir
+>>> from cryptocourse import shamir
 >>> t,n = 3,7
 >>> p = 113
 >>> secret1 = 12
@@ -84,7 +84,7 @@ True
 ```
 ## Multiplying shares, Shamir style
 ```
->>> import shamir
+>>> from cryptocourse import shamir
 >>> t,n = 4,7
 >>> p = 113
 >>> secret1 = 4
@@ -103,7 +103,7 @@ True
                                               # n = 7 points and thsi is enough to uniquely identify a 6th degree polynomial
 48
 >>> 
->>> import shamir
+>>> from cryptocourse import shamir
 >>> t,n = 5,7
 >>> p = 113
 >>> secret1 = 4
