@@ -11,7 +11,7 @@ Elliptical curve cryptography is used for digital signature and key exchange, bu
 
 ## Calculating with elliptical curves
 ```
->>> import basic_ec
+>>> from cryptocourse import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
 >>> g = basic_ec.StandardBasePoints["secp256k1"]
 >>> p = ec.mul(g,175000)
@@ -31,7 +31,7 @@ True
 ```
 ## Elliptical Diffie-Hellman
 ```
->>> import basic_ec
+>>> from cryptocourse import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
 >>> g = basic_ec.StandardBasePoints["secp256k1"]
 >>> 
@@ -49,13 +49,13 @@ True
 ```
 ## Transforming a shared secret into key material
 ```
->>> import hkdf
+>>> from cryptocourse import hkdf
 >>> new_key = hkdf.Hkdf(None, shared_secret_a)   # any Diffie-Hellman shared secret may still contain some bias and therefore, this step is required
                                                  # None is the salt
 ```
 ## Elgamal elliptical curve encryption
 ```
->>> import basic_ec
+>>> from cryptocourse import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
 >>> g = basic_ec.StandardBasePoints["secp256k1"]
 >>> 
@@ -78,7 +78,7 @@ True
 ```
 ## ECDSA (Elliptical Curve Digital Signature)
 ```
->>> import basic_ec
+>>> from cryptocourse import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
 >>> g = basic_ec.StandardBasePoints["secp256k1"]
 >>> 
