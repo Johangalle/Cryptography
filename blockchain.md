@@ -3,7 +3,7 @@ Code snippets to learn cryptography without the need to use other libraries. DO 
 
 This is just a simple example showing the blockchain essentials.
 ```
->>> import basic_bc
+>>> from cryptocourse import basic_bc
 >>> me = basic_bc.MyIdentity("me",1)
 >>> you = basic_bc.MyIdentity("you",2)
 >>> him = basic_bc.MyIdentity("him",3)
