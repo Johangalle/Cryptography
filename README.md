@@ -1,9 +1,10 @@
 # Cryptography
 Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION
 
-When you wish to import these files, just copy all files from the code folder into an appropriate folder.
+When you wish to install this, just do pip3 install cryptocourse.
+When you wish to uninstall this, just do pip3 uninstall cryptocourse.
 
-This file contains some short code snippets to give you an idea how everything works. This material complements the cryptography course that I teach at Howest (https://www.howest.be).
+This github, in addition to the source code, contains some short code snippets to give you an idea how everything works. This material complements the cryptography course that I teach at Howest (https://www.howest.be).
 
 More complete documentation can be found here:
 
