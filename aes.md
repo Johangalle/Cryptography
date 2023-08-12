@@ -6,7 +6,7 @@ AES (Advanced Encryption System) is the most popular symmetric encryption algori
 ## Standard AES encryption (no modes of operation, exactly one block)
 ### Standard AES encryption (lists of integers, no modes of operation)
 ```
->>> import aes
+>>> from cryptocourse import aes
 >>> import secrets
 >>> cleartext = [100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]
 >>> key = [143,194,34,208,145,203,230,143,177,246,97,206,145,92,255,84]
@@ -61,7 +61,7 @@ ValueError: block size incorrect in encrypt input
 ## AES encryption with modes of operation
 ### Standard AES encryption (key = list of integers, mode of operation CBC, key size 128 bits / 16 bytes)
 ```
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> import secrets
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = "This is a test! This is a test! This is a test!"
@@ -74,7 +74,7 @@ True
 ```
 ### Standard AES encryption (key = list of integers, mode of operation OFB, key size 128 bits / 16 bytes)
 ```
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> import secrets
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = "This is a test! This is a test! This is a test!"
@@ -87,7 +87,7 @@ True
 ```
 ### Standard AES encryption (key = list of integers, mode of operation CFB, key size 128 bits / 16 bytes)
 ```
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> import secrets
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = "This is a test! This is a test! This is a test!"
@@ -100,7 +100,7 @@ True
 ```
 ### Standard AES encryption (key = list of integers, mode of operation CTR, key size 128 bits / 16 bytes)
 ```
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> import secrets
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = "This is a test! This is a test! This is a test!"
@@ -113,7 +113,7 @@ True
 ```
 ### Standard AES encryption (key = bytes, mode of operation CBC, key size 128 bits / 16 bytes)
 ```
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> import secrets
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = "This is a test! This is a test! This is a test!"
@@ -126,7 +126,7 @@ True
 ```
 ### Standard AES encryption (key = bytes, mode of operation CBC, key size 256 bits / 32 bytes)
 ```
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> import secrets
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = "This is a test! This is a test! This is a test!"
@@ -139,7 +139,7 @@ True
 ```
 ### Standard AES encryption (key = bytes, mode of operation CTR, key size 128 bits / 16 bytes)
 ```
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> import secrets
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = "This is a test! This is a test! This is a test!"
@@ -152,7 +152,7 @@ True
 ```
 ### Standard AES encryption (key = bytes, mode of operation CTR, key size 256 bits / 32 bytes)
 ```
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> import secrets
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = "This is a test! This is a test! This is a test!"
@@ -172,7 +172,7 @@ The sequence of operations is an S-box substitution, a permutation, and an XOR w
 * The input is 0x01002300450067008900AB00CD00EF00
 * Question: what is the cipher (in hex)?
 ```
->>> import permute
+>>> from cryptocourse import permute
 >>> key = bytes.fromhex('1032547698BADCFE1032547698BADCFE')
 >>> input = 0x01002300450067008900AB00CD00EF00
 >>> Sbox  = 0x766326636e638563a7636263bd63df63
