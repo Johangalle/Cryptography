@@ -18,7 +18,7 @@
 #
 
 import collections
-import euclidean
+from cryptocourse import euclidean
 import math
 import sys
 import os

@@ -14,7 +14,7 @@
 #
 
 import random
-import euclidean
+from cryptocourse import euclidean
 
 random.seed(None)
 #  Of course, this is not truly random, so not acceptable from a security point of view

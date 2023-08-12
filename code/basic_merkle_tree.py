@@ -14,7 +14,7 @@
 import hashlib
 import sys
 import json
-import basic_bc
+from cryptocourse import basic_bc
 
 SECURE_HASH_FUNCTIONS = ['sha1', 'sha224', 'sha256', 'sha384', 'sha512']
 

@@ -20,8 +20,8 @@
 #
 
 from operator import xor
-import primes
-import euclidean
+from cryptocourse import primes
+from cryptocourse import euclidean
 
 # to have a good level of security, the key used should have approximately the same length as the plaintext
 

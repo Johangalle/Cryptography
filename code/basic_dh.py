@@ -21,8 +21,8 @@
 import os
 import binascii
 import hashlib
-import primes
-import euclidean
+from cryptocourse import primes
+from cryptocourse import euclidean
 
 # RFC 3526 - More Modular Exponential (MODP) Diffie-Hellman groups for
 # Internet Key Exchange (IKE) https://tools.ietf.org/html/rfc3526

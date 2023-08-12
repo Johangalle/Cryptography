@@ -17,8 +17,8 @@
 # No part of this module should be used for cryptography in production.
 # This module is strictly for education purposes.
 #
-import basic_ec
-import basic_merkle_tree
+from cryptocourse import basic_ec
+from cryptocourse import basic_merkle_tree
 import datetime
 import json
 import hashlib

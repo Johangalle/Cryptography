@@ -29,7 +29,7 @@
 # This module is strictly for education purposes.
 #
 
-import aes
+from cryptocourse import aes
 import math
 
 class AESModeOfOperation(object):

@@ -18,7 +18,8 @@
 # No part of this module should be used for cryptography in production.
 # This module is strictly for education purposes.
 #
-import random
+import secrets
+secretsGenerator = secrets.SystemRandom()
 
 def largest_prime_factor(n):
     # We try all possible divisors starting with 2 
@@ -101,7 +102,7 @@ def miller_rabin(n, ctr=10):
     # If one of these checks returns False, the end result is False
     # If all of these checks return True, the end result is True
     for i in range(ctr):
-        a = random.randrange(2, n - 1)
+        a = secretsGenerator.randrange(2, n - 1)
         if not check(a, k, d, n):
             return False
     return True
@@ -133,7 +134,7 @@ def findAPrime(a, b):
     # So, x <= 2^nrOfBits
     # 4*ln(x) = 4*ln(2^nrOfBits) = 4*nrOfBits*ln(2) = 4*nrOfBits*0.69 < 3*nrOfBits
     #
-    x = random.randint(a, b)
+    x = secretsGenerator.randint(a, b)
     if x%2 == 0:
         x = x + 1
     nrOfBits = x.bit_length()
@@ -165,7 +166,7 @@ def findASafePrime(a,b):
     # q = 11 (mod 12)
     if b <= a:
         b = a*4
-    p = random.randint(a, b)
+    p = secretsGenerator.randint(a, b)
     if p % 2 == 0:
         p = p + 1
     q = 2*p + 1
