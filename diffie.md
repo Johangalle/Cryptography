@@ -30,7 +30,7 @@ True
 ```
 ### Diffie-Hellman, default example
 ```
->>> import basic_dh
+>>> from cryptocourse import basic_dh
 >>> a = basic_dh.DiffieHellman()
 >>> pub_a = a.gen_public_key()
 >>> 
@@ -45,7 +45,7 @@ True
 ```
 ### Diffie-Hellman, example with standard group parameters
 ```
->>> import basic_dh
+>>> from cryptocourse import basic_dh
 >>> a = basic_dh.DiffieHellman(8192,2)
 >>> pub_a = a.gen_public_key()
 >>> 
@@ -60,7 +60,7 @@ True
 ```
 ### Diffie-Hellman, example with non-standard group parameters
 ```
->>> import basic_dh
+>>> from cryptocourse import basic_dh
 >>> a = basic_dh.DiffieHellman(1024,0)
 determining non standard group parameters (takes some time)
 >>> b = basic_dh.DiffieHellman()
@@ -76,7 +76,7 @@ True
 ```
 ## Asymmetric encryption with Elgamal
 ```
->>> import basic_dh
+>>> from cryptocourse import basic_dh
 >>> eg_a = basic_dh.ElGamal(4096,3)
 >>> eg_b = basic_dh.ElGamal(4096,3)
 >>> 
