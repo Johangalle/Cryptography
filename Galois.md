@@ -8,7 +8,7 @@ The coefficients of the polynomials are always modulo some number. Most of the t
 
 ## Adding polynomials (including unary negation)
 ```
->>> import galois
+>>> from cryptocourse import galois
 >>> p = galois.Polynomial(5,1,2,3,4)
 >>> q = galois.Polynomial(5,1,2,0,0)
 >>> p
