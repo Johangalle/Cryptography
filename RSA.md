@@ -12,7 +12,7 @@ The extended euclidean algorithm is used to calculate the multiplicative inverse
 
 ## Determining whether a given number is prime or not
 ```
->>> import primes
+>>> from cryptocourse import primes
 >>> p = 2453
 >>> primes.miller_rabin(p)
 False
@@ -25,7 +25,7 @@ True
 ```
 ## Using the euclidean algorithm to find the greatest common divisor and the lowest common multiple
 ```
->>> import euclidean
+>>> from cryptocourse import euclidean
 >>> n1 = 93353879449
 >>> n2 = 2104755767
 >>> a = euclidean.gcd(n1,n2)
@@ -39,7 +39,7 @@ True
 ```
 ## Using the extended euclidean algorithm to find the multiplicative inverse
 ```
->>> import euclidean
+>>> from cryptocourse import euclidean
 >>> euclidean.mulinv(5,17)  # What do we need to multiply 5 with in order to obtain 1 in modulo 17?
 7
 >>> 5*7%17    # % = remainder or modulo
@@ -47,8 +47,8 @@ True
 ```
 ## Determining suitable parameters for RSA (small number example)
 ```
->>> import euclidean
->>> import primes
+>>> from cryptocourse import euclidean
+>>> from cryptocourse import primes
 >>> p = primes.findAPrime(30,100)
 >>> q = primes.findAPrime(30,100)
 >>> n = p*q
@@ -91,13 +91,13 @@ ValueError: multiplicative inverse is not possible if values are not relatively 
 ## Using Fermat factorization to factor n
 See [Fermat Attack on RSA](https://fermatattack.secvuln.info). The attack only works if the difference between p and q is relatively small. If we have primes of 2048 bit length, and the distance between the two primes is half (2^1024), then the attack is immediate. If it is slightly more (say 1033 or 1034), it still produces a result after a reasonable time.
 ```
->>> import primes
+>>> from cryptocourse import primes
 >>> p = primes.findAPrime(pow(2,2047),pow(2,2048))
 >>> q = primes.findAPrime(p, p+pow(2,1030))
 >>> d = p-q
 >>> d.bit_length()
 1030
->>> import rsa_square_attack
+>>> from cryptocourse import rsa_square_attack
 >>> rsa_square_attack.factor(n)
 (27510374069082399769043346522901546909411217671944577705833991378951817333288679633778663731322198982250576232408360712323536170531183933004397974648527787883448098293223733989303334184107518483002408699938558031081246822727804926924033314597269134091328936928012953306900662028233743976866530335603802607405165796701566105471295095442843019050471979184344106222902721523156683643193822412278286047205322776348110541527618776788407153202834624364805618021470479425160593888466755108695983666249751684529640238419893190424253509251270098125457080360418817185768963861777957641122756582944280105820045724211145137005841, 27510374069082399769043346522901546909411217671944577705833991378951817333288679633778663731322198982250576232408360712323536170531183933004397974648527787883448098293223733989303334184107518483002408699938558031081246822727804926924033314597269134091328936928012953306900662028233743976866530335603802607413962481724974770211458556125346789744227855259272058131741764491901212418755148821237189049785773692466599492489584861884711899548278585022865108229475162136567012512951075754399836909258115084192370733666301467698474955697973179901382819569270249129528521299906330651665569616685158159857603480370038091100299)
 >>> p,q
