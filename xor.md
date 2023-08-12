@@ -10,7 +10,7 @@ The encryption is referred to as symmetric because we need the same key on both 
 ## XOR symmetric encryption using int
 ### XOR symmetric encryption using int with equal length
 ```
->>> import basic_crypto
+>>> from cryptocourse import basic_crypto
 >>> import secrets
 >>> masterkey = secrets.randbits(128)
 >>> plaintext = 0x1234567890abcdeffedcba0987654321
