@@ -4,7 +4,7 @@ Code snippets to learn cryptography without the need to use other libraries. DO 
 For more examples, see the other documentation.
 ## The easiest (symmetric_xor) symmetric encryption algorithm
 ```
->>> import basic_crypto
+>>> from cryptocourse import basic_crypto
 >>> import secrets
 >>> masterkey = secrets.token_bytes(16) # if you want to generate a random 16 bytes sequence
 >>> masterkey = b"mfhskrncdsognwz".     # if you want to specify the key yourself
@@ -14,7 +14,7 @@ For more examples, see the other documentation.
 
 ## We continue with asymmetric encryption algorithm
 ```
->>> import basic_crypto
+>>> from cryptocourse import basic_crypto
 >>> pub, priv = basic_crypto.asymmetric_generate_keys()
 >>> plaintext = b"abcdefghijklmnop"
 >>> cipher = basic_crypto.asymmetric_encrypt(plaintext, pub)  # you should give the public key to anyone who wants to encrypt
@@ -24,7 +24,7 @@ For more examples, see the other documentation.
 ## We now take the most popular symmetric encryption algorithm: AES. 
 ### Note that the input size must be exactly equal to 128 bits
 ```
->>> import aes
+>>> from cryptocourse import aes
 >>> import secrets
 >>> cleartext = b"This is a test! " # this is exactly 16 bytes = 128 bits
 >>> key = secrets.token_bytes(32)
@@ -36,7 +36,7 @@ For more examples, see the other documentation.
 ## Now we solve the issue of the fixed block size by using so-called modes of operation
 ```
 >>> import secrets
->>> import aesModeOfOperation
+>>> from cryptocourse import aesModeOfOperation
 >>> moo = aesModeOfOperation.AESModeOfOperation()
 >>> cleartext = b"This is a test! This is a test! This is a test!"
 >>> cipherkey = secrets.token_bytes(16)
@@ -47,7 +47,7 @@ For more examples, see the other documentation.
 
 ## Diffie-Hellman is used to generate shared secrets by exchanging only public key information
 ```
->>> import basic_dh
+>>> from cryptocourse import basic_dh
 >>> a = basic_dh.DiffieHellman(2048,7)
 >>> b = basic_dh.DiffieHellman(2048,7)
 >>> puba = a.gen_public_key()
@@ -59,13 +59,13 @@ For more examples, see the other documentation.
 ## In case you need to convert key material of size x into key material of size y, use HKDF
 ```
 import secrets
-import hkdf
+from cryptocourse import hkdf
 input = secrets.token_bytes(16)
 output = hkdf.Hkdf.(None,input)
 ```
 ## Elliptical Curve Cryptography is an alternative method that can also be used for Diffie-Hellman
 ```
->>> import basic_ec
+>>> from cryptocourse import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
 >>> g = basic_ec.StandardBasePoints["secp256k1"]
 >>> a = basic_ec.DiffieHellman(ec,g)
@@ -78,7 +78,7 @@ output = hkdf.Hkdf.(None,input)
 
 ## We use ECDSA (Elliptical Curve Cryptography Digital Signature Algorithm for digitally signing information
 ```
->>> import basic_ec
+>>> from cryptocourse import basic_ec
 >>> ec = basic_ec.StandardECS["secp256k1"]
 >>> g = basic_ec.StandardBasePoints["secp256k1"]
 >>> d_sender = basic_ec.DSA(ec, g)
@@ -105,7 +105,7 @@ True
 ## We create a blockchain of simple transactions.
 ### We also have identities, and each identity has a public key.
 ```
->>> import basic_bc
+>>> from cryptocourse import basic_bc
 >>> me = basic_bc.MyIdentity("me",1)
 >>> you = basic_bc.MyIdentity("you",2)
 >>> him = basic_bc.MyIdentity("him",3)
