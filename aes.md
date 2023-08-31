@@ -178,7 +178,7 @@ The sequence of operations is an S-box substitution, a permutation, and an XOR w
 >>> Sbox  = 0x766326636e638563a7636263bd63df63
 >>> Sbox = bytes.fromhex('766326636e638563a7636263bd63df63')
 >>> per = permute.permute(Sbox, [15, 0, 14, 1, 13, 2, 12, 3, 11, 4, 10, 5, 9, 6, 8, 7])
->>> import basic_crypto
+>>> from cryptocourse import basic_crypto
 >>> cipher = basic_crypto.byte_xor(per, key)
 >>> cipher
 b'f\x14:\xf3?\xd8a!sQ7\x15\xfb\xd9\xbf\x9d'
