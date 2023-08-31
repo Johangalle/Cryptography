@@ -34,7 +34,7 @@ True
 >>> a = basic_dh.DiffieHellman()
 >>> pub_a = a.gen_public_key()
 >>> 
->>> import basic_dh
+>>> from cryptocourse import basic_dh
 >>> b = basic_dh.DiffieHellman()
 >>> pub_b = b.gen_public_key()
 >>> 
@@ -49,7 +49,7 @@ True
 >>> a = basic_dh.DiffieHellman(8192,2)
 >>> pub_a = a.gen_public_key()
 >>> 
->>> import basic_dh
+>>> from cryptocourse import basic_dh
 >>> b = basic_dh.DiffieHellman(8192,2)
 >>> pub_b = b.gen_public_key()
 >>> 
