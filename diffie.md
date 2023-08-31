@@ -58,6 +58,13 @@ True
 >>> shared_secret_a == shared_secret_b
 True
 ```
+### Transforming a shared secret into key material
+```
+>>> from cryptocourse import hkdf
+>>> new_key = hkdf.Hkdf(None, shared_secret_a)   # any Diffie-Hellman shared secret may still contain some bias and therefore, this step is required
+                                                 # None is the salt
+```
+
 ### Diffie-Hellman, example with non-standard group parameters
 ```
 >>> from cryptocourse import basic_dh
