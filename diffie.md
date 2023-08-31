@@ -61,8 +61,15 @@ True
 ### Transforming a shared secret into key material
 ```
 >>> from cryptocourse import hkdf
->>> new_key = hkdf.Hkdf(None, shared_secret_a)   # any Diffie-Hellman shared secret may still contain some bias and therefore, this step is required
-                                                 # None is the salt
+>>> hkdf_object = hkdf.Hkdf(None, shared_secret_a)
+            # any Diffie-Hellman shared secret may still contain some bias and therefore, this step is required
+            # None is the salt
+>>> newkey = hkdf_object.expand()
+            # There are two (default) parameters:
+            # info = b'' (the context to generate the key material
+            # length = 32 (in bytes)
+>>> new_key
+b'X\x97\x08\x17\xa30\xe8\x84\xcf;\xdd\xe8\xa9\xb5O@\x93\xe8\xd8\x1f\xc82\xa4D\x8e\x10\x06))\xc8a\xcb'
 ```
 
 ### Diffie-Hellman, example with non-standard group parameters
