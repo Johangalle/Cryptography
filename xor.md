@@ -178,7 +178,7 @@ True
 >>> decrypt = bytes.fromhex(hex(int.from_bytes(cipher)^int.from_bytes(masterkey))[2:])
 >>> decrypt == plaintext
 True
->>> import basic_crypto
+>>> from cryptocourse import basic_crypto
 >>> plaintext = bytes.fromhex('abcdefabcdef')
 >>> masterkey = bytes.fromhex('123456789098')
 >>> cipher = basic_crypto.byte_xor(plaintext, masterkey)
