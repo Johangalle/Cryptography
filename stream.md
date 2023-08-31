@@ -41,7 +41,7 @@ True
 >>> part_of_stream = result[offset:offset+len(plain)]
 >>> len(plain), len(part_of_stream)
 (64, 64)
->>> import basic_crypto
+>>> from cryptocourse import basic_crypto
 >>> cipher = basic_crypto.byte_xor(plain, part_of_stream)
 >>> decrypt = basic_crypto.byte_xor(cipher, part_of_stream)
 >>> decrypt
