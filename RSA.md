@@ -89,7 +89,7 @@ ValueError: multiplicative inverse is not possible if values are not relatively 
 334.2857142857143
 ```
 ## Using Fermat factorization to factor n
-See [Fermat Attack on RSA](https://fermatattack.secvuln.info). The attack only works if the difference between p and q is relatively small. If we have primes of 2048 bit length, and the distance between the two primes is half (2^1024), then the attack is immediate. If it is slightly more (say 1033 or 1034), it still produces a result after a reasonable time.
+See [Fermat Attack on RSA](https://fermatattack.secvuln.info). The attack only works if the difference between p and q is relatively small. If we have primes of 2048 bit length, and the distance between the two primes is half in bit length (2^1024), then the attack is immediate. If it is slightly more (say 2^1033 or 2^1034), it still produces a result after a reasonable time using a decent processor (do not use an iPad).
 ```
 >>> from cryptocourse import primes
 >>> p = primes.findAPrime(pow(2,2047),pow(2,2048))
