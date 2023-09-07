@@ -268,7 +268,7 @@ class EC(object):
         #    pass
         return r
 
-    def order(self, g):
+    def order(self, g, max = 100):
         """order of point g
         >>> o = ec.order(g)
         >>> assert ec.is_valid(a) and ec.mul(a, o) == ec.zero
@@ -278,7 +278,6 @@ class EC(object):
         if self._order == 0:
             for i in range(1, 2*self.q + 1):
                 if self.mul(g, i) == self.zero:
-                    self._order = i
                     return i
                 pass
             raise Exception("Invalid order")

@@ -19,7 +19,7 @@ from cryptocourse import euclidean
 random.seed(None)
 #  Of course, this is not truly random, so not acceptable from a security point of view
       
-global field_size
+#global field_size
 # This is a prime number to avoid the problem that the multiplicative inverse would not exist
 # For that purpose, I generated some prime numbers of the form pow(2,i) - 1
 # You can take any prime number

@@ -29,6 +29,8 @@ def permute(b,sequence):
     if isinstance(b, bytes):
         bytes_string = True
         b = int.from_bytes(b)
+    else:
+        bytes_string = False
     if int((len(hex(b).rstrip("L")) - 1)/2) > len(sequence):
         raise ValueError('byte length %s too big for sequence with length %s' %((len(hex(b)) - 1)/2, len(sequence)))
     else:

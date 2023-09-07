@@ -19,7 +19,7 @@ if sys.version_info[0] == 3:
 
 def hkdf_extract(salt, input_key_material, hash=hashlib.sha512):
     '''
-    Extract a pseudorandom key suitable for use with hkdf_expand
+    Extract a pseudorandomH  key suitable for use with hkdf_expand
     from the input_key_material and a salt using HMAC with the
     provided hash (default SHA-512).
 
