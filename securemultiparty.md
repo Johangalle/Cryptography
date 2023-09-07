@@ -16,7 +16,7 @@ The formula behind this protocol works as follows. We want to multiply the secre
 
 We have the beaver triple [a], [b], [c] and we know that c = a * b (this is the meaning of a beaver triple). The beaver values are secret-shared.
 
-We calculate alpha = [x] – [a]; beta = [y] - [b]. We reconstruct the secrets alp[ha and beta, but this does not reveal any information about [x] and [y].
+We calculate alpha = [x] – [a]; beta = [y] - [b]. We reconstruct the secrets alpha and beta, but this does not reveal any information about [x] and [y].
 We then compute the linear function [z] = [c] + alpha*[b] + beta*[a] + alpha*beta. This results in [z] = [x] * [y].
 
 ## Perform the multiparty multiplication
