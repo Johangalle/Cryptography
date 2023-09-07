@@ -25,6 +25,7 @@ More complete documentation can be found here:
 * [Hashing](hashing.md)
 * [Secret sharing](secretsharing.md)
 * [Blockchain basics](blockchain.md)
+* [Oblivious transfer](oblivious.md)
 * [Various conversions and Python specifics](various.md)
 
 If you just want a short overview, look at this summery:
