@@ -46,3 +46,29 @@ We then compute the linear function [z] = [c] + alpha*[b] + beta*[a] + alpha*bet
 >>> shamir.reconstructSecret(resultshares)
 5
 ```
+## Perform the multiparty multiplication using a given prime number for the modulo calculations
+```
+>>> from cryptocourse import shamir, basic_mpc
+>>> n, m = 5,3
+>>> shares1 = shamir.generateShares(n,m,25, 2969, True)
+>>> shares1
+[[1, 1708], [2, 2109], [3, 1228], [4, 2034], [5, 1558]]
+>>> shares2 = shamir.generateShares(n,m,30, 2969, True)
+>>> beaver = basic_mpc.generateBeaverMultiple(n,m,2969)
+>>> sha, shb, shc = basic_mpc.splitBeaver(beaver)
+>>> sha, shb, shc
+([[1, 424], [2, 2789], [3, 112], [4, 1300], [5, 415]], [[1, 1061], [2, 1393], [3, 106], [4, 169], [5, 1582]], [[1, 865], [2, 2098], [3, 1483], [4, 1989], [5, 647]])
+>>> alphashares = shamir.subtractShares(shares1, sha)
+>>> betashares = shamir.subtractShares(shares2, shb)
+>>> alphashares = shamir.subtractShares(shares1, sha, 2969)
+>>> betashares = shamir.subtractShares(shares2, shb, 2969)
+>>> alpha = shamir.reconstructSecret(alphashares,2969)
+>>> beta = shamir.reconstructSecret(betashares,2969)
+>>> alpha, beta
+(1070, 920)
+>>> resultshares = shamir.linearCombinationOfShares([shc,shb,sha],[1, alpha, beta],alpha*beta, 2969)
+>>> shamir.reconstructSecret(resultshares, 2969)
+750
+>>> 25*30
+750
+```
