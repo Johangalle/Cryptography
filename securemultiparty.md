@@ -12,7 +12,7 @@ During the computation, none of the parties is able to deduce any other informat
 We have shares1, a set of 3 shares [1,2], [2,5], [3,10] in a (3,3) secret sharing scheme. We have shares2, a set of 3 shares [1,6], [2,7], [3,8] in a (3,3) secret sharing scheme
 Calculate a set of shares (resultShares) representing the product of the two secrets, by using the SPDZ protocol (based on beavers).
 
-The key formula works as follows. We want to multiply the secrets [x] and [y]. We have the beaver tripe [a], [b], [c] and we know that c = a*b (this is the meaning of a beaver triple). The beaver values are secret-shared.
+The key formula works as follows. We want to multiply the secrets [x] and [y]. We have the beaver tripe [a], [b], [c] and we know that c = a * b (this is the meaning of a beaver triple). The beaver values are secret-shared.
 We calculate alpha = [x] – [a]; beta = [y] - [b]. We reconstruct the secrets alp[ha and beta, but this does not reveal any information about [x] and [y].
 We then compute the linear function [z] = [c] + alpha*[b] + beta*[a] + alpha*beta. This results in [z] = [x] * [y].
 
