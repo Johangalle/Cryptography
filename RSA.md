@@ -1,4 +1,4 @@
-# Asymmetric encryption (RSA) and factorization
+# Asymmetric encryption (RSA) and integer factorization
 Code snippets to learn cryptography without the need to use other libraries. DO NOT USE IN PRODUCTION.
 
 RSA is the oldest asymmetric encryption (or public key) algorithm and is still used today. 
