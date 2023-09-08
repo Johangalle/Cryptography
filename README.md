@@ -21,6 +21,7 @@ More complete documentation can be found here:
 * [Stream ciphers and symmetric encryption](stream.md)
 * [RSA asymmetric encryption and factorization](RSA.md)
 * [Diffie Hellman key exchange and Elgamal encryption](diffie.md)
+* [Key management and certificates](key_management.md)
 * [Elliptical curve cryptography](ec.md)
 * [Hashing](hashing.md)
 * [Secret sharing](secretsharing.md)
