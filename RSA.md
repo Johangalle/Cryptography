@@ -115,7 +115,7 @@ See [Fermat Attack on RSA](https://fermatattack.secvuln.info). The attack only w
 >>> 
 ```
 ## Using various modern algorithms to factor n
-See [Primefac](https://pypi.org/project/primefac/)  This module implements various algorithms: 
+See [Primefac](https://pypi.org/project/primefac/). This module implements various algorithms: 
 * Brent’s improvement on Pollard’s rho algorithm (pollardrho_brent) which is good for extracting smallish factors quickly
 * Pollard's p-1 algorithm (pollard_pm1), which is good at finding factors p for which p-1 is a product of small primes
 * William's p+1 algorithm (williams_pp1), which is good at finding factors p for which p+1 is a product of small primes
