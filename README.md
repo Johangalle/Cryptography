@@ -19,7 +19,7 @@ More complete documentation can be found here:
 * [Galois multiplication](Galois.md)
 * [AES Symmetric encryption and modes of operation](aes.md)
 * [Stream ciphers and symmetric encryption](stream.md)
-* [RSA asymmetric encryption](RSA.md)
+* [RSA asymmetric encryption and factorization](RSA.md)
 * [Diffie Hellman key exchange and Elgamal encryption](diffie.md)
 * [Elliptical curve cryptography](ec.md)
 * [Hashing](hashing.md)
