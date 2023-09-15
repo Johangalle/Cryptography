@@ -15,20 +15,20 @@ This github, in addition to the source code, contains some short code snippets t
 
 More complete documentation can be found here:
 
-* [Symmetric encryption with XOR](xor.md)
+* [Symmetric encryption with XOR](doc/xor.md)
 * [Galois multiplication](doc/Galois.md)
-* [AES Symmetric encryption and modes of operation](aes.md)
-* [Stream ciphers and symmetric encryption](stream.md)
-* [RSA asymmetric encryption and factorization](RSA.md)
-* [Diffie Hellman key exchange and Elgamal encryption](diffie.md)
-* [Key management and certificates](key_management.md)
-* [Elliptical curve cryptography](ec.md)
-* [Hashing](hashing.md)
-* [Secret sharing](secretsharing.md)
-* [Blockchain basics](blockchain.md)
-* [Oblivious transfer](oblivious.md)
-* [Secure multiparty computation](securemultiparty.md)
-* [Various conversions and Python specifics](various.md)
+* [AES Symmetric encryption and modes of operation](doc/aes.md)
+* [Stream ciphers and symmetric encryption](doc/stream.md)
+* [RSA asymmetric encryption and factorization](doc/RSA.md)
+* [Diffie Hellman key exchange and Elgamal encryption](doc/diffie.md)
+* [Key management and certificates](doc/key_management.md)
+* [Elliptical curve cryptography](doc/ec.md)
+* [Hashing](doc/hashing.md)
+* [Secret sharing](doc/secretsharing.md)
+* [Blockchain basics](doc/blockchain.md)
+* [Oblivious transfer](doc/oblivious.md)
+* [Secure multiparty computation](doc/securemultiparty.md)
+* [Various conversions and Python specifics](doc/various.md)
 
 If you just want a short overview, look at this summery:
 * [A short summary of all scripts](summary.md)
