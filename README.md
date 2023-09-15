@@ -30,6 +30,6 @@ More complete documentation can be found here:
 * [Secure multiparty computation](doc/securemultiparty.md)
 * [Various conversions and Python specifics](doc/various.md)
 
-If you just want a short overview, look at this summery:
+If you just want a short overview, look at this summary:
 * [A short summary of all scripts](summary.md)
 
