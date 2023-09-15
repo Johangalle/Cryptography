@@ -10,25 +10,7 @@ Generating RSA private key, 2048 bit long modulus
 ................+++++
 ......................+++++
 e is 65537 (0x10001)
-$ openssl req -new -sha256 -key mytestserver.key -out mytestserver.csr
-You are about to be asked to enter information that will be incorporated
-into your certificate request.
-What you are about to enter is what is called a Distinguished Name or a DN.
-There are quite a few fields but you can leave some blank
-For some fields there will be a default value,
-If you enter '.', the field will be left blank.
------
-Country Name (2 letter code) []:be
-State or Province Name (full name) []:
-Locality Name (eg, city) []:
-Organization Name (eg, company) []:howest
-Organizational Unit Name (eg, section) []:
-Common Name (eg, fully qualified host name) []:howest
-Email Address []:
-
-Please enter the following 'extra' attributes
-to be sent with your certificate request
-A challenge password []:
+$ openssl rsa -in mytestserver.key -pubout -out mytestserver.pub
 $ cat mytestserver.key                                                
 -----BEGIN RSA PRIVATE KEY-----
 MIIEowIBAAKCAQEA5naF7zSixD6a+18XSdDrpUCuc4oWf0dOL7oBhhZ6fYNsg7Ms
@@ -57,6 +39,35 @@ XlJhBwKBgBX46Q1v3IUzu/8BYhC+m8AJunNu6SwLd9r0z7ToYgZw+NBvznYF3oij
 IVTH6PGGczByrKSbrgFmqLRPGK0SEKpqtgG30+JiHw2VWcS9g3aIaCwITxAGQWfw
 RT0FKxUJARToBBdb/BTAGg6d34yAfJNnkRJrY/cnKu/WZPsorCYp
 -----END RSA PRIVATE KEY-----
+$ cat mytestserver.pub 
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5naF7zSixD6a+18XSdDr
+pUCuc4oWf0dOL7oBhhZ6fYNsg7MswjdEFLl9Zi7eQeBCg4iYdRpN2/bvxthywadn
+IHpKucRNQOqdKqJmX/4+dtcGrMW7h7j8v2NMvmL2qTpEQoM2YOfe+mlI84VBLCFi
+t/aDOtWoGFdBHLqyEvAXI8XiHm7EgKdlPjJwNFHANisi1NsyO+j2NKacgkQZ/JT3
+efWjeRUHJLz2TqzBw7qxN5BTjjan+bU4ok+WqWQgwNc5e41nzajzUzILy8pKO2Z2
+/I5qvE9yzZBLXMYMqsNaEQ8U8IdDNxkPiv7zgAcIXgvKg3GJslKr5GoEiAkKAxlK
+4QIDAQAB
+-----END PUBLIC KEY-----
+$ openssl req -new -sha256 -key mytestserver.key -out mytestserver.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) []:be
+State or Province Name (full name) []:
+Locality Name (eg, city) []:
+Organization Name (eg, company) []:howest
+Organizational Unit Name (eg, section) []:
+Common Name (eg, fully qualified host name) []:howest
+Email Address []:
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
 $ cat mytestserver.csr                                                
 -----BEGIN CERTIFICATE REQUEST-----
 MIICdDCCAVwCAQAwLzELMAkGA1UEBhMCYmUxDzANBgNVBAoMBmhvd2VzdDEPMA0G
