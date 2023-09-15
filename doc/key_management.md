@@ -96,8 +96,7 @@ dfon5gdCyk3VseF5QxN4zQy+l96RBM+dS6lu7ekhZZCPWg1/ZDdNSswEyY+mBhwp
 kifmpJ4M+YNla1Zw92nkIeClPABNiGx5ZOtYzhN4shbCM6TGRrIsVx1xA/dfVF0q
 KAVnbfIKb/2YBlY53UZkbzvmJ2W660uCIZ2+LNez9T3hVEsP5/wiPnOChxdlg6gQ
 OZDtqwKfhM+9fvvKfqs=
------END CERTIFICATE-----
-johangalle@Johans-MacBook-Air ~ % 
+-----END CERTIFICATE----- 
 ```
 ## Create the public / private key pair
 Install the pycryptodome library for this purpose. You may need to install pip (or pip3) first, or upgrade pip. 
