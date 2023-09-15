@@ -16,7 +16,7 @@ This github, in addition to the source code, contains some short code snippets t
 More complete documentation can be found here:
 
 * [Symmetric encryption with XOR](xor.md)
-* [Galois multiplication](Galois.md)
+* [Galois multiplication](doc/Galois.md)
 * [AES Symmetric encryption and modes of operation](aes.md)
 * [Stream ciphers and symmetric encryption](stream.md)
 * [RSA asymmetric encryption and factorization](RSA.md)
