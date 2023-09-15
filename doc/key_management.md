@@ -4,7 +4,7 @@ Code snippets to learn cryptography without the need to use other libraries. DO 
 Key management is not yet part of my library and needs to be taken from another library.
 
 ## Create the public / private key pair, csr and self-signed certificate
-We use openssl for this purpose. If not yet on your system, please follow the instruction on openssl.org to install openssl.
+We use openssl for this purpose. If not yet on your system, please follow the instruction on [openssl.org](https://www.openssl.org) to install openssl.
 ```
 $ openssl genrsa -out ./mytestserver.key 2048                 
 Generating RSA private key, 2048 bit long modulus
@@ -168,7 +168,7 @@ b'I met aliens in UFO. Here is the map.'
 'I met aliens in UFO. Here is the map.'
 ```
 ## Check the certificate of a webserver
-We need to install an additional library (sslyze) for this purpose. This library does not just check the certificate but the entire SSL configuration of your website. More info can be found on https://github.com/nabla-c0d3/sslyze.
+We need to install an additional library (sslyze) for this purpose. This library does not just check the certificate but the entire SSL configuration of your website. More info can be found on https://pypi.org/project/sslyze/ or https://github.com/nabla-c0d3/sslyze.
 ```
 $ pip3 install --upgrade sslyze
 $ python3 -m sslyze www.howest.be 
