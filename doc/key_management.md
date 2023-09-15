@@ -167,3 +167,9 @@ b'I met aliens in UFO. Here is the map.'
 >>> data.decode("utf-8")
 'I met aliens in UFO. Here is the map.'
 ```
+## Check the certificate of a webserver
+We need to install an additional library (sslyze) for this purpose. This library does not just check the certificate but the entire SSL configuration of your website. More info can be found on https://github.com/nabla-c0d3/sslyze.
+```
+$ pip3 install --upgrade sslyze
+$ python3 -m sslyze www.howest.be 
+```
